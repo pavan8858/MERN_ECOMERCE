@@ -10,8 +10,8 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) =>{
     const currency = '₹';
     const delevery_fee = 10;
-    const backendUrl = "http://localhost:4000";
-
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+   
     const[search , setSearch] = useState('');
     const[showSearch , setShowSearch] = useState(false);
     const [cartitem ,setCartItem] = useState({});
@@ -230,15 +230,15 @@ const ShopContextProvider = (props) =>{
 
     const getProductsData = async () => {
       try {
-        console.log("🔵 Fetching products from API...");
+        //console.log("🔵 Fetching products from API...");
         const response = await axios.get(`${backendUrl}/api/product/list`);
     
         if (response.data.success && response.data.products.length > 0) {
           setProducts(response.data.products);
-          console.log("✅ Products updated:", response.data.products);
+          //console.log("✅ Products updated:", response.data.products);
         } else {
           setProducts([]); // Ensure state updates even if empty
-          console.warn("⚠️ No products found!");
+          //console.warn("⚠️ No products found!");
         }
       } catch (error) {
         console.error("❌ Error fetching products:", error.response?.data || error.message);
@@ -278,7 +278,7 @@ const ShopContextProvider = (props) =>{
       getProductsData()
     },[])
     useEffect(() => {
-      console.log("📌 Updated Products:", products);
+      //console.log("📌 Updated Products:", products);
     }, [products]);
     
 

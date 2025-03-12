@@ -13,12 +13,20 @@ import Orders from './pages/Orders'; // Assuming this exists
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 
+
+
+
+
 import { ToastContainer, toast } from 'react-toastify';
 import Verify from './pages/Verify';
 
 
 
 const App = () => {
+  //console.log("All ENV variables:", import.meta.env);
+  //console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL);
+  //console.log("Razorpay Key:", import.meta.env.VITE_RAZORPAY_KEY_ID);
+  
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <ToastContainer/>
